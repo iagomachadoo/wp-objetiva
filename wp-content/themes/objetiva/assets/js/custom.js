@@ -6,7 +6,7 @@
 		meanScreenWidth: "991"
 	});
 	
-	// Sticky, Go To Top JS
+	/* // Sticky, Go To Top JS
 	$(window).on('scroll', function() {
 		// Header Sticky JS
 		if ($(this).scrollTop() >200){  
@@ -15,16 +15,9 @@
 		else{
 			$('.navbar-area').removeClass("is-sticky");
 		};
-	});
+	}); */
 	
-	//PRE LOADER
-    $(window).on('load',function(){
-        var preload=$('.ctn-preloader');
-        if(preload.length>0){
-        preload.delay(800).fadeOut('slow');
-    }})
-
-
+	
 	//odometer js
     $('.odometer').appear(function(e) {
         var odo = $(".odometer");

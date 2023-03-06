@@ -97,12 +97,49 @@ function objetiva_scripts() {
 }
 add_action( 'wp_enqueue_scripts', 'objetiva_scripts' );
 
-// Habilitar Menus
-add_theme_support('menus');
-
-// Registrar o Menu
-function register_my_menu() {
-  register_nav_menu('header-menu',__( 'Header Menu' ));
+// Adicionar tamanhos de imagens
+function custom_sizes_images_desenvolvimento() {
+	add_image_size('large', 551, 382, true);
+	add_image_size('medium_large', 516, 308, true);
+	add_image_size('medium', 416, 308, true);
+	add_image_size('thumb', 356, 219, true);
+	add_image_size('post-thumbnail', 336, 219, true);
+	add_image_size('thumbnail', 296, 219, true);
 }
-add_action( 'init', 'register_my_menu' );
+add_action( 'after_setup_theme', 'custom_sizes_images_desenvolvimento' );
+
+//Adicionar Custom Post Types
+
+function custom_post_type_projetos() {
+	register_post_type('projetos', array(
+		'label' => 'Projetos Portfólio',
+		'description' => 'Projetos Portfólio',
+		'public' => true,
+		'show_ui' => true,
+		'show_in_menu' => true,
+		'capability_type' => 'post',
+		'map_meta_cap' => true,
+		'hierarchical' => false,
+		'rewrite' => array('slug' => 'projetos-portfolio', 'with_front' => true),
+		'query_var' => true,
+		'supports' => array('title', 'editor', 'page-attributes','post-formats'),
+
+		'labels' => array (
+			'name' => 'Projetos Portfólio',
+			'singular_name' => 'projeto portfólio',
+			'menu_name' => 'Projetos Portfólio',
+			'add_new' => 'Adicionar Novo',
+			'add_new_item' => 'Adicionar Novo projeto',
+			'edit' => 'Editar',
+			'edit_item' => 'Editar projeto',
+			'new_item' => 'Novo projeto',
+			'view' => 'Ver projeto',
+			'view_item' => 'Ver projeto',
+			'search_items' => 'Procurar projetos',
+			'not_found' => 'Nenhum projeto Encontrado',
+			'not_found_in_trash' => 'Nenhum projeto Encontrado no Lixo',
+		)
+	));
+}
+add_action('init', 'custom_post_type_projetos');
 ?>

@@ -1,3 +1,12 @@
+:root{
+  --fonte-padrao: 'Dosis', sans-serif;
+  --cor-acao:#000;
+  --cor-sonho:#ebebeb;
+  --cor-natureza:#144734;
+  --cor-historia:#b39974;
+  --cor-estrutura:#3e3e3e;
+}
+
 @media only screen and (max-width: 767px) {
   .ptb-100 {
     padding-top: 50px;
@@ -2521,7 +2530,7 @@
 /* Mobile and iPad Navbar */
 @media only screen and (max-width: 991px) {
   .navbar-area {
-    background-color: #ffffff;
+    background-color: var(--cor-acao);
     -webkit-box-shadow: 0 0 20px 3px rgba(0, 0, 0, 0.05);
             box-shadow: 0 0 20px 3px rgba(0, 0, 0, 0.05);
     z-index: 2;
