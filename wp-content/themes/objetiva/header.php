@@ -41,7 +41,7 @@
                 <div class="collapse navbar-collapse mean-menu" id="navbarSupportedContent">
                     <ul class="navbar-nav ms-auto">
                         <li class="nav-item">
-                            <a href="#" class="nav-link active">Home</a>
+                            <a href="#home" class="nav-link active">Home</a>
                         </li>
 
                         <li class="nav-item">
@@ -49,15 +49,15 @@
                         </li>
 
                         <li class="nav-item"> 
-                            <a href="#" class="nav-link">Em Desenvolvimento</a>
+                            <a href="#em-desenvolvimento" class="nav-link">Em Desenvolvimento</a>
                         </li>
 
                         <li class="nav-item">
-                            <a href="#" class="nav-link">Portfólio</a>
+                            <a href="#portfolio" class="nav-link">Portfólio</a>
                         </li>
 
                         <li class="nav-item">
-                            <a href="#" class="nav-link">Contato</a>
+                            <a href="#contato" class="nav-link">Contato</a>
                         </li> 
                     </ul>
 
@@ -72,46 +72,8 @@
             </nav>
         </div>
     </div>
-
-    <div class="others-option-for-responsive">
-        <div class="container">
-            <div class="dot-menu">
-                <div class="inner">
-                    <div class="others-options ms-auto">
-                        <div class="option-item">
-                            <div class="sidebar-btn">
-                                <div class="sidebar-menu" data-bs-toggle="modal" data-bs-target="#sidebarModal"></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
 </div>
 <!-- End Navbar Area -->
-
-<!-- Search Modal -->
-<div class="modal fade fade-scale searchmodal" id="searchmodal" tabindex="-1" role="dialog">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-bs-dismiss="modal">
-                    <i class="fa-solid fa-xmark"></i>
-                </button>
-            </div>
-            
-            <div class="modal-body">
-                <form class="modal-search-form">
-                    <input type="search" class="search-field" placeholder="Search...">
-                    
-                    <button type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
-                </form>
-            </div>
-        </div>
-    </div>
-</div>
-<!-- End Search Modal -->
 
 <!-- Sidebar Modal -->
 <div class="sidebarModal modal right fade" id="sidebarModal" tabindex="-1" role="dialog">

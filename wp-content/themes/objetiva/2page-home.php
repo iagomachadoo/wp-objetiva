@@ -6,14 +6,14 @@
     <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
         
         <!--Start Banner Area-->
-        <div class="banner-area" id="home">
-            <div class="container-fluid2">
-                <div class="banner-conteudo position-relative">
-                    <div class="banner-texto position-absolute mw-100 h-100 d-flex flex-column justify-content-center ms-sm-5 ms-3 ps-xl-5 ps-lg-3">
+        <div class="banner-area">
+            <div class="container-fluid">
+                <div class="banner-conteudo">
+                    <div class="banner-texto position-absolute mw-100 h-100 d-flex flex-column justify-content-center">
                         <h1>SONHO, CÂMERA, AÇÃO!</h1>
                         <p>Hub de projetos culturais na indústria criativa.</p>
                     </div>
-                    <div class="banner-video">
+                    <div class="banner-video position-relative">
                         <video autoplay muted loop preload="metadata" class="img-fluid">
                             <source src="<?php echo get_template_directory_uri();?>/assets/images/video-logo/Banner-video.mp4" type="video/mp4">
                     </video>
@@ -210,11 +210,11 @@
         <!--End Portfólio Area-->
 
         <!--Start Contact Area-->
-        <div class="contact-area ptb-100" id="contato">
+        <div class="contact-area ptb-100">
             <div class="container">
                 <div class="row get-in-touch">
                     <h2>Fale Conosco</h2>
-                    <div class="contact-info-card col-lg-3 col-sm-6">
+                    <div class="contact-info-card col-3">
                         <div class="icon">
                             <i class="fa-solid fa-phone"></i>
                         </div>
@@ -222,7 +222,7 @@
                         <a href="tel:0884566477587">(088) 456 647 7587</a>
                         <a href="tel:0884566465247">(088) 456 646 5247</a>
                     </div>
-                    <div class="contact-info-card col-lg-3 col-sm-6">
+                    <div class="contact-info-card col-3">
                         <div class="icon">
                             <i class="fa-solid fa-envelope"></i>
                         </div>
@@ -230,7 +230,7 @@
                         <a href="mailto:vidmonet@domain.com">vidmonet@domain.com</a>
                         <a href="mailto:hello@video.com">hello@video.com</a>
                     </div>
-                    <div class="contact-info-card col-lg-3 col-sm-6">
+                    <div class="contact-info-card col-3">
                         <div class="icon">
                             <i class="fa-solid fa-location-dot"></i>
                         </div>
@@ -238,7 +238,7 @@
                         <span>176, Street Name, New York,</span>
                         <span>NY 10014176, USA</span>
                     </div>
-                    <div class="social-content col-lg-3 col-sm-6">
+                    <div class="social-content col-3">
                         <h4>Follow us</h4>
                         <ul>
                             <li>

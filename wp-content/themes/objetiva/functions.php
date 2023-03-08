@@ -97,19 +97,7 @@ function objetiva_scripts() {
 }
 add_action( 'wp_enqueue_scripts', 'objetiva_scripts' );
 
-// Adicionar tamanhos de imagens
-function custom_sizes_images_desenvolvimento() {
-	add_image_size('large', 551, 382, true);
-	add_image_size('medium_large', 516, 308, true);
-	add_image_size('medium', 416, 308, true);
-	add_image_size('thumb', 356, 219, true);
-	add_image_size('post-thumbnail', 336, 219, true);
-	add_image_size('thumbnail', 296, 219, true);
-}
-add_action( 'after_setup_theme', 'custom_sizes_images_desenvolvimento' );
-
 //Adicionar Custom Post Types
-
 function custom_post_type_projetos() {
 	register_post_type('projetos', array(
 		'label' => 'Projetos Portfólio',
@@ -142,4 +130,37 @@ function custom_post_type_projetos() {
 	));
 }
 add_action('init', 'custom_post_type_projetos');
+
+function custom_post_type_em_andamento() {
+	register_post_type('projetos em andamento', array(
+		'label' => 'Projetos Em Andamento',
+		'description' => 'Projetos Em Andamento',
+		'public' => true,
+		'show_ui' => true,
+		'show_in_menu' => true,
+		'capability_type' => 'post',
+		'map_meta_cap' => true,
+		'hierarchical' => false,
+		'rewrite' => array('slug' => 'projetos-em-andamento', 'with_front' => true),
+		'query_var' => true,
+		'supports' => array('title', 'editor', 'page-attributes','post-formats'),
+
+		'labels' => array (
+			'name' => 'Projetos Em Andamento',
+			'singular_name' => 'projeto em andamento',
+			'menu_name' => 'Projetos Em Andamento',
+			'add_new' => 'Adicionar Novo',
+			'add_new_item' => 'Adicionar Novo projeto',
+			'edit' => 'Editar',
+			'edit_item' => 'Editar projeto',
+			'new_item' => 'Novo projeto',
+			'view' => 'Ver projeto',
+			'view_item' => 'Ver projeto',
+			'search_items' => 'Procurar projetos',
+			'not_found' => 'Nenhum projeto Encontrado',
+			'not_found_in_trash' => 'Nenhum projeto Encontrado no Lixo',
+		)
+	));
+}
+add_action('init', 'custom_post_type_em_andamento');
 ?>

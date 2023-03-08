@@ -83,7 +83,12 @@
     padding-left: 0;
     padding-right: 0;
   }
-  .banner-content .banner-left-content h1 {
+  /* .banner-content .banner-left-content h1 {
+    font-size: 40px;
+    line-height: 50px;
+    margin-bottom: 18px;
+  } */
+  .banner-area .banner-texto h1{
     font-size: 40px;
     line-height: 50px;
     margin-bottom: 18px;
@@ -1036,7 +1041,12 @@
     padding-left: 0;
     padding-right: 0;
   }
-  .banner-content .banner-left-content h1 {
+  /* .banner-content .banner-left-content h1 {
+    font-size: 50px;
+    line-height: 50px;
+    margin-bottom: 22px;
+  } */
+  .banner-area .banner-texto h1{
     font-size: 50px;
     line-height: 50px;
     margin-bottom: 22px;
@@ -1790,7 +1800,11 @@
     padding-left: 0;
     padding-right: 0;
   }
-  .banner-content .banner-left-content h1 {
+  /* .banner-content .banner-left-content h1 {
+    font-size: 75px;
+    line-height: 85px;
+  } */
+  .banner-area .banner-texto h1{
     font-size: 75px;
     line-height: 85px;
   }
@@ -2326,7 +2340,12 @@
     padding-left: 0;
     padding-right: 0;
   }
-  .banner-content .banner-left-content h1 {
+  /* .banner-content .banner-left-content h1 {
+    font-size: 90px;
+    line-height: 100px;
+    margin-bottom: 30px;
+  } */
+  .banner-area .banner-texto h1{
     font-size: 90px;
     line-height: 100px;
     margin-bottom: 30px;
@@ -2714,6 +2733,10 @@
   }
   .navbar-area.style3 .others-option-for-responsive .others-options .option-item .sidebar-btn .sidebar-menu::after {
     background-color: #ffffff;
+  }
+  .experience-image .experience h2,
+  .experience-image .experience{
+    line-height: 1;
   }
 }
 /*# sourceMappingURL=responsive.css.map */

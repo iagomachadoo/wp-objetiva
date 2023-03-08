@@ -653,3 +653,34 @@
         }
     })();
 } catch (err) {}
+
+let itensARedimensionar = [
+    ".single-features-card",
+    ".single-blog-card",
+];
+
+function resize() {
+    let itensARedimensionar = [...arguments];
+    itensARedimensionar.forEach(element => {
+      window.addEventListener("load", (event) => {
+          window.addEventListener("resize", () => {
+              const itemRedimensionado = document.querySelectorAll(element);
+              itemRedimensionado.forEach((desc) => {
+                  desc.style.height = "auto";
+              });
+              let maior = 0;
+              itemRedimensionado.forEach((desc) => {
+                  if (desc.clientHeight > maior) {
+                      maior = desc.clientHeight;
+                  }
+              });
+              itemRedimensionado.forEach((desc) => {
+                  desc.style.height = maior + "px";
+              });
+          });
+          window.dispatchEvent(new Event("resize"));
+      });
+    });
+};
+
+resize(...itensARedimensionar);

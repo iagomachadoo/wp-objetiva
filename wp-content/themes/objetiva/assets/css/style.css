@@ -1658,10 +1658,6 @@ Banner Area Style
   margin-bottom: 5px;
 } */
 
-.banner-texto{
-  margin-left: 60px;  
-}
-
 .banner-area .banner-texto span {
   color: var(--cor-sonho);
   background: rgba(62, 62, 62, 0.600);
@@ -1713,7 +1709,7 @@ Banner Area Style
 
 .banner-area .banner-texto {
   color: var(--cor-sonho);
-  z-index: 999;
+  z-index: 1;
 }
 
 .banner-slider.owl-theme .owl-nav {
@@ -3382,7 +3378,7 @@ Trust Area Style
 Trailer Area Style
 ======================================================*/
 .trailer-area.bg-1 {
-  background-image: url('../images/trailer/trailer-img-1.jpg');
+  background-image: url('../images/trailer/Imagem_portfolio.webp');
   background-attachment: scroll;
   background-size: cover;
   background-position: center center;

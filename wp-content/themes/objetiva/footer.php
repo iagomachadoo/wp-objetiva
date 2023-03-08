@@ -2,14 +2,14 @@
 <div class="footer-area pt-100 pb-70">
     <div class="container">
         <div class="row">
-            <div class="col-lg-4 col-sm-6">
+            <div class="col-sm-4 ">
                 <div class="single-footer-widget logo-area">
                     <div class="logo">
                         <a href="index.html"><img src="<?php echo get_template_directory_uri(  );?>/assets/images/white-logo.png" alt="Image"></a>
                     </div>
                 </div>
             </div>
-            <div class="col-lg-4 col-sm-6">
+            <div class="col-sm-4  text-sm-center">
                 <div class="single-footer-widget logo-area">
                     <h3>Get In Touch</h3>
                     <div class="social-content">
@@ -30,7 +30,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-lg-4 col-sm-6">
+            <div class="col-sm-4  text-xl-end text-sm-center">
                 <div class="single-footer-widget logo-area">
                     <span class="dto me-1">site por</span>
                     <a href="">
