@@ -1658,15 +1658,10 @@ Banner Area Style
   margin-bottom: 5px;
 } */
 
-.banner-area .banner-texto span {
-  color: var(--cor-sonho);
-  background: rgba(62, 62, 62, 0.600);
-  padding: 4px 20px;
-  display: inline-block;
-  font-size: 18px;
-  font-weight: 600;
-  margin-bottom: 5px;
-  max-width: max-content;
+.banner-area .banner-texto h1 span {
+  color: var(--cor-acao);
+  background-color: var(--cor-natureza);
+  padding: 0px 4px;
 }
 
 /* .banner-content .banner-left-content h1 {
@@ -1700,6 +1695,11 @@ Banner Area Style
   font-size: 18px;
   font-weight: 600;
   max-width: 850px;
+}
+
+.banner-area .video-mobile{
+  height: 480px;
+  object-fit: cover;
 }
 
 .banner-area .container-fluid {
@@ -2059,6 +2059,8 @@ Experience Area Style
 
 .experience-content .content p {
   margin-bottom: 18px;
+  font-size: 18px;
+  line-height: 1.6;
 }
 
 .experience-content .content p:last-child {
@@ -2160,6 +2162,9 @@ About Area Style
 /*
 Features Area Style
 ======================================================*/
+.features-area{
+  background-color: var(--cor-acao);
+}
 .features-area.bg-1 {
   background-color: #141414;
   background-image: url(../images/features/features-shape-1.png);
@@ -2177,6 +2182,10 @@ Features Area Style
 
 .single-features-card .features-img {
   margin-bottom: 22px;
+}
+
+.features-area h2{
+  color: var(--cor-sonho);
 }
 
 .single-features-card h3 {
@@ -3394,7 +3403,7 @@ Trailer Area Style
   width: 100%;
   left: 0;
   top: 0;
-  background: rgba(20, 71, 52, 0.800);
+  background: hsla(158, 57%, 18%, 0.970);
   z-index: -1;
 }
 
@@ -3437,7 +3446,23 @@ Trailer Area Style
   opacity: 0;
 }
 
-.single-trailer-card .trailer-img .play-btn a {
+/* .single-trailer-card .trailer-img .play-btn a {
+  color: var(--cor-historia);
+  height: 80px;
+  width: 80px;
+  line-height: 80px;
+  text-align: center;
+  font-size: 30px;
+  border-radius: 100%;
+  background: var(--cor-sonho);
+  -webkit-transition: all ease 2s;
+  transition: all ease 2s;
+  display: inline-block;
+  position: relative;
+  z-index: 1;
+} */
+
+.single-trailer-card .trailer-img .play-btn span {
   color: var(--cor-historia);
   height: 80px;
   width: 80px;
@@ -3453,13 +3478,33 @@ Trailer Area Style
   z-index: 1;
 }
 
-.single-trailer-card .trailer-img .play-btn a i {
+/* .single-trailer-card .trailer-img .play-btn a i {
+  position: relative;
+  left: 3px;
+  top: 2px;
+} */
+
+.single-trailer-card .trailer-img .play-btn span i {
   position: relative;
   left: 3px;
   top: 2px;
 }
 
-.single-trailer-card .trailer-img .play-btn a::before {
+/* .single-trailer-card .trailer-img .play-btn a::before {
+  position: absolute;
+  content: '';
+  height: 90px;
+  width: 90px;
+  left: -5px;
+  top: -5px;
+  border: 1px solid var(--cor-sonho);
+  border-radius: 100%;
+  -webkit-animation: ripple 4s linear infinite;
+          animation: ripple 4s linear infinite;
+  z-index: -1;
+} */
+
+.single-trailer-card .trailer-img .play-btn span::before {
   position: absolute;
   content: '';
   height: 90px;
@@ -3473,7 +3518,12 @@ Trailer Area Style
   z-index: -1;
 }
 
-.single-trailer-card .trailer-img .play-btn a:hover {
+/* .single-trailer-card .trailer-img .play-btn a:hover {
+  background-color: var(--cor-historia);
+  color: var(--cor-sonho);
+} */
+
+.single-trailer-card .trailer-img .play-btn span:hover {
   background-color: var(--cor-historia);
   color: var(--cor-sonho);
 }

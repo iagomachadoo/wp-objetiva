@@ -625,7 +625,28 @@
     $("html, body").animate({ scrollTop: "0" },  500);
     });
 
+    // Aplica a mascara aos campos de telefone e whatsapp
+    var behaviorTelefone = function (val) {
+            return val.replace(/\D/g, "").length === 11
+                ? "(00) 00000-0000"
+                : "(00) 0000-00009";
+        },
+        optionsTelefone = {
+            onKeyPress: function (val, e, field, optionsTelefone) {
+                field.mask(
+                    behaviorTelefone.apply({}, arguments),
+                    optionsTelefone
+                );
+            },
+        };
 
+    if (document.querySelector("#telefone")) {
+        $("#telefone").mask(behaviorTelefone, optionsTelefone);
+    }
+
+    if (document.querySelector("#whatsapp")) {
+        $("#whatsapp").mask(behaviorTelefone, optionsTelefone);
+    }
 
 })(jQuery);
     try {

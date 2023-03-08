@@ -1,4 +1,6 @@
 <?php
+include(TEMPLATEPATH . '/recaptcha.php');
+
 // Funções para Limpar o Header
 remove_action('wp_head', 'rsd_link');
 remove_action('wp_head', 'wlwmanifest_link');
@@ -163,4 +165,202 @@ function custom_post_type_em_andamento() {
 	));
 }
 add_action('init', 'custom_post_type_em_andamento');
+
+//Validação formulário de contato
+function captcha($input){
+    $secret = SECRET_KEY;
+    $url = 'https://www.google.com/recaptcha/api/siteverify?secret=' . urlencode($secret) .  '&response=' . urlencode($input);
+    $response = file_get_contents($url);
+    $responseKeys = json_decode($response,true);
+
+    return($responseKeys['success']);
+}
+
+function display_form_contato() {
+
+    global $wpdb;
+	$validation_messages = [];
+	$success_message = '';
+    
+
+	if ( isset($_POST['contato-form'])) {
+
+        $responseData = captcha($_POST['g-recaptcha-response']);
+        
+        if ($responseData) {
+            //Sanitize the data
+            $nome = isset($_POST['nome']) ? sanitize_text_field($_POST['nome']) : '';
+            $email = isset($_POST['email']) ? sanitize_text_field($_POST['email']) : '';
+            $telefone = isset($_POST['telefone']) ? sanitize_textarea_field($_POST['telefone']) : '';
+            $empresa = isset($_POST['empresa']) ? sanitize_textarea_field($_POST['empresa']) : '';
+            $assunto = isset($_POST['assunto']) ? sanitize_textarea_field($_POST['assunto']) : '';
+            $mensagem = isset($_POST['mensagem']) ? sanitize_textarea_field($_POST['mensagem']) : '';
+
+
+            //Validate the data
+            if (strlen($nome) === 0) {
+                $validation_messages[] = esc_html__('Por favor insira um nome válido.', 'newtheme');
+            }
+
+            if (strlen($email) === 0 or
+                ! is_email($email)) {
+                $validation_messages[] = esc_html__('Por favor insira um email válido.', 'newtheme');
+            }
+
+            if (strlen($telefone) === 0) {
+                $validation_messages[] = esc_html__('Por favor insira um telefone válido.', 'newtheme');
+            }
+
+            if (strlen($empresa) === 0) {
+                $validation_messages[] = esc_html__('Por favor insira uma empresa.', 'newtheme');
+            }
+
+            if (strlen($assunto) === 0) {
+                $validation_messages[] = esc_html__('Por favor insira um assunto.', 'newtheme');
+            }
+
+			if (strlen($mensagem) === 0) {
+                $validation_messages[] = esc_html__('Por favor insira uma mensagem.', 'newtheme');
+            }
+
+            //Send an email to the WordPress administrator if there are no validation errors
+            if (empty($validation_messages)) {
+                $wpdb->insert(
+                    'wp_contato',
+                    array(
+                        'nome' => $nome,
+                        'email' => $email,
+                        'telefone' => $telefone,
+                        'empresa' => $empresa,
+                        'assunto' => $assunto,
+                        'mensagem' => $mensagem
+
+                    ),
+                    array(
+                        '%s',
+                        '%s',
+                        '%s',
+                        '%s',
+                        '%s',
+                        '%s'
+
+                    )
+                );
+
+                //$mail    = "comercial@lvalenca.com.br";
+                $mail    = "iagomachado22@gmail.com";
+                $year    = date("Y");
+                $subject = "Nova mensagem de contato";
+                $headers = array('Content-Type: text/html; charset=UTF-8');
+                $message = "<section style='background-color:#f8fafc; '>";
+                $message .=     "<div>";
+                $message .=     "<h2 style='text-align:center; padding:2rem 0rem; margin:0;'>Objetiva</h2>";
+                $message .=     "</div>";
+                $message .=     "<div style='background-color:#ffffff; width:100%; padding:2rem 0;'>";
+                $message .=         "<div style='margin:0 auto; width:40%;'>";
+                $message .=         "<p style='color:#000000'><strong>Nome:</strong>" . $nome . "</p>";
+                $message .=         "<p style='color:#000000'><strong>Email:</strong>" . $email . "</p>";
+                $message .=         "<p style='color:#000000'><strong>Telefone:</strong>" . $telefone . "</p>";
+                $message .=         "<p style='color:#000000'><strong>Nome da Empresa:</strong>" . $empresa . "</p>";
+                $message .=         "<p style='color:#000000'><strong>Assunto:</strong>" . $assunto . "</p>";
+                $message .=         "<p style='color:#000000'><strong>Mensagem:</strong>" . $mensagem . "</p>";
+                $message .=         "</div>";
+                $message .=     "</div>";
+                $message .=     "<div>";
+                $message .=     "<p style='color:#000000; text-align:center; padding:2rem 0rem; margin:0;'>&copy;" . $year . " Objetiva. Todos os direitos reservados.</p>";
+                $message .=     "</div>";
+                $message .= "</section>";
+
+
+
+
+                wp_mail($mail, $subject, $message, $headers);
+
+                $success_message = esc_html__('Sua mensagem foi enviada com sucesso!', 'newtheme');
+            }
+        }else if(!$responseData){
+            $validation_messages[] = esc_html__('reCaptcha inválido, tente novamente!');
+        }
+
+	}
+
+	//Display the validation errors
+	if ( ! empty( $validation_messages ) ) {
+		foreach ( $validation_messages as $validation_message ) {
+			echo '<div class="validation-message">' . esc_html( $validation_message ) . '</div>';
+		}
+	}
+
+	//Display the success message
+	if ( strlen( $success_message ) > 0 ) {
+		echo '<div class="success-message">' . esc_html( $success_message ) . '</div>';
+	}
+
+	?>
+
+    <!-- Echo a container used that will be used for the JavaScript validation -->
+    <div id="validation-messages-container"></div>
+    <form id="contato-form" method="post">
+		<input type="hidden" name="contato-form">
+		<div class="row">
+			<div class="col-12">
+				<div class="form-group">
+					<input type="text" name="name" placeholder="Nome" id="name" class="form-control" required data-error="Please enter your name">
+					<div class="help-block with-errors"></div>
+				</div>
+			</div>
+
+			<div class="col-lg-6 col-sm-6">
+				<div class="form-group">
+					<input type="email" name="email" id="email" placeholder="Email" class="form-control" required data-error="Please enter your email">
+					<div class="help-block with-errors"></div>
+				</div>
+			</div>
+
+			<div class="col-lg-6 col-sm-6">
+				<div class="form-group">
+					<input type="text" name="telefone" id="telefone" placeholder="Telefone" required data-error="Please enter your number" class="form-control">
+					<div class="help-block with-errors"></div>
+				</div>
+			</div>
+
+			<div class="col-lg-6 col-sm-6">
+				<div class="form-group">
+					<input type="text" name="empresa" id="empresa" class="form-control" placeholder="Empresa">
+					<div class="help-block with-errors"></div>
+				</div>
+			</div>
+
+			<div class="col-lg-6 col-sm-6">
+				<div class="form-group">
+					<input type="text" name="assunto" id="assunto" placeholder="Assunto" required data-error="Please enter your subject" class="form-control">
+					<div class="help-block with-errors"></div>
+				</div>
+			</div>
+
+			<div class="col-12">
+				<div class="form-group">
+					<textarea name="message" class="form-control" placeholder="Mensagem" id="message" cols="30" rows="6" required data-error="Write your message"></textarea>
+					<div class="help-block with-errors"></div>
+				</div>
+			</div>
+
+			<div class="col-lg-12 col-md-12">
+				<button type="submit" class="g-recaptcha default-btn" data-sitekey="<?php echo SITE_KEY;?>" data-callback='onSubmitContato' data-action='submit'><span>Enviar mensagem</span><i class="flaticon-right-arrow-2"></i></button>
+				<div id="msgSubmit" class="h3 text-center hidden"></div>
+				<div class="clearfix"></div>
+			</div>
+		</div>
+	</form>
+    
+	<script>
+		function onSubmitContato(token) {
+			document.getElementById('contato-form').submit();
+		}
+	</script>
+	
+	<?php
+}
+
+add_shortcode( 'form_contato', 'display_form_contato' );
 ?>

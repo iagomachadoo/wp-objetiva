@@ -1,8 +1,8 @@
 <?php
-// Template Name: Home
+get_header();
+include(TEMPLATEPATH . '/recaptcha.php');
 ?>
 
-<?php get_header(); ?>
     <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
         
         <!--Start Banner Area-->
@@ -10,13 +10,17 @@
             <div class="container-fluid2">
                 <div class="banner-conteudo position-relative">
                     <div class="banner-texto position-absolute mw-100 h-100 d-flex flex-column justify-content-center ms-sm-5 ms-3 ps-xl-5 ps-lg-3">
-                        <h1>SONHO, CÂMERA, AÇÃO!</h1>
+                        <h1><span>SONHO, CÂMERA,</span> <span>AÇÃO!</span></h1>
                         <p>Hub de projetos culturais na indústria criativa.</p>
                     </div>
                     <div class="banner-video">
-                        <video autoplay muted loop preload="metadata" class="img-fluid">
+                        <video autoplay muted loop preload="metadata" class="img-fluid d-md-block d-none">
                             <source src="<?php echo get_template_directory_uri();?>/assets/images/video-logo/Banner-video.mp4" type="video/mp4">
-                    </video>
+                        </video>
+
+                        <video autoplay muted loop preload="metadata" class="video-mobile img-fluid d-md-none d-block">
+                            <source src="<?php echo get_template_directory_uri();?>/assets/images/video-logo/Banner-video-mobile3.mp4" type="video/mp4">
+                        </video>
                     </div>
                 </div>
             </div>
@@ -57,7 +61,7 @@
         <!--End Sobre Nós Area-->
 
         <!--Start Diferenciais Area-->
-        <div class="features-area bg-f5f5f5 pt-100 pb-70">
+        <div class="features-area pt-100 pb-70">
             <div class="container">
                 <div class="section-title">
                     <span>Diferenciais</span>
@@ -145,7 +149,7 @@
                                 <div class="blog-content">
                                     <div class="info">
                                         <ul>
-                                            <li><span><?php the_field("genero");?></span></li>
+                                            <li><span class="p-0"><?php the_field("genero");?></span></li>
                                         </ul>
                                     </div>
                                     <h2 class="mb-2"><span><?php the_field("titulo");?></span></h2>
@@ -182,20 +186,22 @@
 
                     <?php if ( $the_query->have_posts() ) : while ( $the_query->have_posts() ) : $the_query->the_post(); ?>
 
-                        <div class="single-trailer-card">
-                            <div class="trailer-img">
-                                <img src="<?php the_field("imagem");?>" alt="Image">
-                                <div class="play-btn">
-                                    <a class="popup-youtube" href="<?php the_field("link_do_video");?>">
-                                        <i class="fa-solid fa-play"></i>
-                                    </a>
+                        <a href="<?php the_field("link_do_video");?>" class="popup-youtube">
+                            <div class="single-trailer-card">
+                                <div class="trailer-img">
+                                    <img src="<?php the_field("imagem");?>" alt="Image">
+                                    <div class="play-btn">
+                                        <span>
+                                            <i class="fa-solid fa-play"></i>
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="trailer-content">
+                                    <h3><?php the_field("titulo");?></h3>
+                                    <span><?php the_field("formato");?></span>
                                 </div>
                             </div>
-                            <div class="trailer-content">
-                                <h3><?php the_field("titulo");?></h3>
-                                <span><?php the_field("formato");?></span>
-                            </div>
-                        </div>
+                        </a>
 
                     <?php endwhile; else: endif; ?>
                     <?php wp_reset_query(); wp_reset_postdata(); ?>
@@ -218,7 +224,7 @@
                         <div class="icon">
                             <i class="fa-solid fa-phone"></i>
                         </div>
-                        <h4>Phone</h4>
+                        <h4>Telefone</h4>
                         <a href="tel:0884566477587">(088) 456 647 7587</a>
                         <a href="tel:0884566465247">(088) 456 646 5247</a>
                     </div>
@@ -234,12 +240,12 @@
                         <div class="icon">
                             <i class="fa-solid fa-location-dot"></i>
                         </div>
-                        <h4>Address</h4>
+                        <h4>Endereço</h4>
                         <span>176, Street Name, New York,</span>
                         <span>NY 10014176, USA</span>
                     </div>
                     <div class="social-content col-lg-3 col-sm-6">
-                        <h4>Follow us</h4>
+                        <h4>Redes Sociais</h4>
                         <ul>
                             <li>
                                 <a href="https://www.facebook.com" target="_blank"><i class="fa-brands fa-facebook-f"></i></a>
@@ -261,82 +267,14 @@
         <!--End Contact Area-->
 
         <!--Start Contact Form Area-->
-        <div class="contact-form-area ptb-100 bg-f8f8f8">
+        <div class="contact-form-area pb-100">
             <div class="container">
                 <div class="section-title">
                     <span>Envie-nos uma mensagem:</span>
                 </div>
                 <div class="contacts-form">
-                    <form id="contactForm">
-                        <div class="row">
-                            <div class="col-12">
-                                <div class="form-group">
-                                    <input type="text" name="name" placeholder="Nome" id="name" class="form-control" required data-error="Please enter your name">
-                                    <div class="help-block with-errors"></div>
-                                </div>
-                            </div>
-            
-                            <div class="col-lg-6 col-sm-6">
-                                <div class="form-group">
-                                    <input type="email" name="email" id="email" placeholder="Email" class="form-control" required data-error="Please enter your email">
-                                    <div class="help-block with-errors"></div>
-                                </div>
-                            </div>
-            
-                            <div class="col-lg-6 col-sm-6">
-                                <div class="form-group">
-                                    <input type="text" name="phone_number" id="phone_number" placeholder="Telefone" required data-error="Please enter your number" class="form-control">
-                                    <div class="help-block with-errors"></div>
-                                </div>
-                            </div>
-            
-                            <div class="col-lg-6 col-sm-6">
-                                <div class="form-group">
-                                    <input type="text" name="msg_subject" id="msg_subject" class="form-control" placeholder="Empresa">
-                                    <div class="help-block with-errors"></div>
-                                </div>
-                            </div>
-
-                            <div class="col-lg-6 col-sm-6">
-                                <div class="form-group">
-                                    <input type="text" name="assunto" id="assunto" placeholder="Assunto" required data-error="Please enter your subject" class="form-control">
-                                    <div class="help-block with-errors"></div>
-                                </div>
-                            </div>
-            
-                            <div class="col-12">
-                                <div class="form-group">
-                                    <textarea name="message" class="form-control" placeholder="Mensagem" id="message" cols="30" rows="6" required data-error="Write your message"></textarea>
-                                    <div class="help-block with-errors"></div>
-                                </div>
-                            </div>
-
-                            <div class="form-group">
-                                <div class="form-check">
-                                    <input
-                                        name="gridCheck"
-                                        value="I agree to the terms and privacy policy."
-                                        class="form-check-input"
-                                        type="checkbox"
-                                        id="gridCheck"
-                                        required
-                                    >
-                                    <label class="form-check-label" for="gridCheck">
-                                        I agree to the <a href="terms-conditions.html">terms</a> and <a href="privacy-policy.html">privacy policy</a>
-                                    </label>
-                                    <div class="help-block with-errors gridCheck-error"></div>
-                                </div>
-                            </div>
-            
-                            <div class="col-lg-12 col-md-12">
-                                <button type="submit" class="default-btn">
-                                    <span>Send Message</span>
-                                    <i class="flaticon-right-arrow-2"></i>
-                                </button>
-                                <div id="msgSubmit" class="h3 text-center hidden"></div>
-                                <div class="clearfix"></div>
-                            </div>
-                        </div>
+                    <form id="contactForm2">
+                         <?php echo do_shortcode("[form_contato]"); ?>
                     </form>
                 </div>
             </div>
@@ -344,4 +282,7 @@
         <!--End Contact Form Area-->
 
     <?php endwhile; else: endif; ?>
-<?php get_footer(); ?>
+
+<?php 
+get_footer(); 
+?>

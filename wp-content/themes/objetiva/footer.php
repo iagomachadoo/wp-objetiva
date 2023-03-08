@@ -11,7 +11,7 @@
             </div>
             <div class="col-sm-4  text-sm-center">
                 <div class="single-footer-widget logo-area">
-                    <h3>Get In Touch</h3>
+                    <h3>Redes Sociais</h3>
                     <div class="social-content">
                         <ul>
                             <li>
@@ -47,20 +47,21 @@
 </div>
 <!--End Footer Area-->
 
-<!--Start Copy Right Area-->
-<div class="copy-right-area">
-    <div class="container">
-        <p>© <span><?php bloginfo('name')?></span> is Proudly Owned by <a href="https://hibootstrap.com/" target="_blank">HiBoostrap</a></p>
-    </div>
-</div>
-<!--End Copy Right Area-->
-
 <!-- Start Go Top Area -->
 <div class="go-top">
     <i class="fa-solid fa-arrow-turn-up"></i>
     <i class="fa-solid fa-arrow-turn-up"></i>
 </div>
 <!-- End Go Top Area -->
+
+<!-- Start Jquery Mask -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js"></script>
+<!-- Ende Jquery Mask -->
+
+<!-- Start Script Recaptcha -->
+<script src="https://www.google.com/recaptcha/api.js"></script>
+<!-- End Script Recaptcha -->
+
 
 <!-- Start Footer Wordpress -->
 <?php wp_footer(); ?>
