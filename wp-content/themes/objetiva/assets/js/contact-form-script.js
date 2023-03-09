@@ -3,7 +3,7 @@
 /*==============================================================*/
 (function ($) {
     "use strict"; // Start of use strict
-    $("#contactForm").validator().on("submit", function (event) {
+    $("#contato-form2").validator().on("submit", function (event) {
         if (event.isDefaultPrevented()) {
             formError();
             submitMSG(false, "Did you fill in the form properly?");
@@ -40,11 +40,11 @@
         });
     }
     function formSuccess(){
-        $("#contactForm")[0].reset();
+        $("#contato-form2")[0].reset();
         submitMSG(true, "Message Submitted!")
     }
     function formError(){
-        $("#contactForm").removeClass().addClass('shake animated').one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function(){
+        $("#contato-form2").removeClass().addClass('shake animated').one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function(){
             $(this).removeClass();
         });
     }

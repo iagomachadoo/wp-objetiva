@@ -148,9 +148,9 @@ function custom_post_type_em_andamento() {
 		'supports' => array('title', 'editor', 'page-attributes','post-formats'),
 
 		'labels' => array (
-			'name' => 'Projetos Em Andamento',
+			'name' => 'Projetos Em Desenvolvimento',
 			'singular_name' => 'projeto em andamento',
-			'menu_name' => 'Projetos Em Andamento',
+			'menu_name' => 'Projetos Em Desenvolvimento',
 			'add_new' => 'Adicionar Novo',
 			'add_new_item' => 'Adicionar Novo projeto',
 			'edit' => 'Editar',
@@ -199,28 +199,24 @@ function display_form_contato() {
 
             //Validate the data
             if (strlen($nome) === 0) {
-                $validation_messages[] = esc_html__('Por favor insira um nome válido.', 'newtheme');
+                $validation_messages[] = esc_html__('Por favor insira um nome válido', 'objetiva');
             }
 
             if (strlen($email) === 0 or
                 ! is_email($email)) {
-                $validation_messages[] = esc_html__('Por favor insira um email válido.', 'newtheme');
+                $validation_messages[] = esc_html__('Por favor insira um email válido', 'objetiva');
             }
 
             if (strlen($telefone) === 0) {
-                $validation_messages[] = esc_html__('Por favor insira um telefone válido.', 'newtheme');
-            }
-
-            if (strlen($empresa) === 0) {
-                $validation_messages[] = esc_html__('Por favor insira uma empresa.', 'newtheme');
+                $validation_messages[] = esc_html__('Por favor insira um telefone válido', 'objetiva');
             }
 
             if (strlen($assunto) === 0) {
-                $validation_messages[] = esc_html__('Por favor insira um assunto.', 'newtheme');
+                $validation_messages[] = esc_html__('Por favor insira um assunto', 'objetiva');
             }
 
 			if (strlen($mensagem) === 0) {
-                $validation_messages[] = esc_html__('Por favor insira uma mensagem.', 'newtheme');
+                $validation_messages[] = esc_html__('Por favor insira uma mensagem', 'objetiva');
             }
 
             //Send an email to the WordPress administrator if there are no validation errors
@@ -271,9 +267,6 @@ function display_form_contato() {
                 $message .=     "</div>";
                 $message .= "</section>";
 
-
-
-
                 wp_mail($mail, $subject, $message, $headers);
 
                 $success_message = esc_html__('Sua mensagem foi enviada com sucesso!', 'newtheme');
@@ -287,39 +280,43 @@ function display_form_contato() {
 	//Display the validation errors
 	if ( ! empty( $validation_messages ) ) {
 		foreach ( $validation_messages as $validation_message ) {
-			echo '<div class="validation-message">' . esc_html( $validation_message ) . '</div>';
+			$nome_campo = explode(' ', $validation_message);
+			if(count($nome_campo) >= 5){
+				echo "<div class='validation-message list-unstyled' id='{$nome_campo[4]}'>" . esc_html( $validation_message ) . "</div>";
+			}else{
+				echo "<div class='validation-message text-danger' id='{$nome_campo[0]}'>" . esc_html( $validation_message ) . "</div>";
+			}
 		}
 	}
 
 	//Display the success message
 	if ( strlen( $success_message ) > 0 ) {
-		echo '<div class="success-message">' . esc_html( $success_message ) . '</div>';
+		echo '<div class="success-message text-danger">' . esc_html( $success_message ) . '</div>';
 	}
 
 	?>
 
     <!-- Echo a container used that will be used for the JavaScript validation -->
-    <div id="validation-messages-container"></div>
-    <form id="contato-form" method="post">
+    <form id="contato-form" method="post" action="#contato-form">
 		<input type="hidden" name="contato-form">
 		<div class="row">
 			<div class="col-12">
 				<div class="form-group">
-					<input type="text" name="name" placeholder="Nome" id="name" class="form-control" required data-error="Please enter your name">
+					<input type="text" name="nome" placeholder="Nome" id="nome" class="form-control" required>
 					<div class="help-block with-errors"></div>
 				</div>
 			</div>
 
 			<div class="col-lg-6 col-sm-6">
 				<div class="form-group">
-					<input type="email" name="email" id="email" placeholder="Email" class="form-control" required data-error="Please enter your email">
+					<input type="email" name="email" id="email" placeholder="Email" class="form-control" required>
 					<div class="help-block with-errors"></div>
 				</div>
 			</div>
 
 			<div class="col-lg-6 col-sm-6">
 				<div class="form-group">
-					<input type="text" name="telefone" id="telefone" placeholder="Telefone" required data-error="Please enter your number" class="form-control">
+					<input type="text" name="telefone" id="telefone" placeholder="Telefone" required  class="form-control">
 					<div class="help-block with-errors"></div>
 				</div>
 			</div>
@@ -333,20 +330,21 @@ function display_form_contato() {
 
 			<div class="col-lg-6 col-sm-6">
 				<div class="form-group">
-					<input type="text" name="assunto" id="assunto" placeholder="Assunto" required data-error="Please enter your subject" class="form-control">
+					<input type="text" name="assunto" id="assunto" placeholder="Assunto" required class="form-control">
 					<div class="help-block with-errors"></div>
 				</div>
 			</div>
 
 			<div class="col-12">
 				<div class="form-group">
-					<textarea name="message" class="form-control" placeholder="Mensagem" id="message" cols="30" rows="6" required data-error="Write your message"></textarea>
+					<textarea name="mensagem" class="form-control" placeholder="Mensagem" id="mensagem" cols="30" rows="6"></textarea>
 					<div class="help-block with-errors"></div>
 				</div>
 			</div>
 
 			<div class="col-lg-12 col-md-12">
 				<button type="submit" class="g-recaptcha default-btn" data-sitekey="<?php echo SITE_KEY;?>" data-callback='onSubmitContato' data-action='submit'><span>Enviar mensagem</span><i class="flaticon-right-arrow-2"></i></button>
+
 				<div id="msgSubmit" class="h3 text-center hidden"></div>
 				<div class="clearfix"></div>
 			</div>
@@ -356,6 +354,24 @@ function display_form_contato() {
 	<script>
 		function onSubmitContato(token) {
 			document.getElementById('contato-form').submit();
+		}
+
+		const mensagem = document.querySelectorAll('.validation-message');
+		mensagem.forEach((item) => {
+			if(item.id === 'reCaptcha'){
+				const mensagemErro = item
+				document.querySelector('#msgSubmit').appendChild(mensagemErro);
+			}else{
+				const camposForm = document.querySelector(`form #${item.id}`);
+				if(item.id === camposForm.id){
+					camposForm.nextElementSibling.appendChild(item) 
+				}
+			}
+		})
+
+		const mensagemSucesso = document.querySelector('.success-message');
+		if(mensagemSucesso){
+			document.querySelector('#msgSubmit').appendChild(mensagemSucesso);
 		}
 	</script>
 	

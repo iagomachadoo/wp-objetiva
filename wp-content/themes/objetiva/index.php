@@ -1,6 +1,5 @@
 <?php
 get_header();
-include(TEMPLATEPATH . '/recaptcha.php');
 ?>
 
     <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
@@ -132,7 +131,8 @@ include(TEMPLATEPATH . '/recaptcha.php');
                     <?php
                         $args = array (
                             'post_type' => 'projetos em andamento',
-                            'order'   => 'ASC'
+                            'order'   => 'ASC',
+                            'pre_get_posts' => 6
                         );
                         $the_query = new WP_Query ( $args );
 
@@ -216,7 +216,7 @@ include(TEMPLATEPATH . '/recaptcha.php');
         <!--End Portfólio Area-->
 
         <!--Start Contact Area-->
-        <div class="contact-area ptb-100" id="contato">
+        <div class="contact-area pt-100 pb-50" id="contato">
             <div class="container">
                 <div class="row get-in-touch">
                     <h2>Fale Conosco</h2>
@@ -225,24 +225,24 @@ include(TEMPLATEPATH . '/recaptcha.php');
                             <i class="fa-solid fa-phone"></i>
                         </div>
                         <h4>Telefone</h4>
-                        <a href="tel:0884566477587">(088) 456 647 7587</a>
-                        <a href="tel:0884566465247">(088) 456 646 5247</a>
+                        <a href="tel:0884566477587">(021) 97277-9382</a>
+                        <a href="tel:0884566465247">(021) 99288-8273</a>
                     </div>
                     <div class="contact-info-card col-lg-3 col-sm-6">
                         <div class="icon">
                             <i class="fa-solid fa-envelope"></i>
                         </div>
                         <h4>Email</h4>
-                        <a href="mailto:vidmonet@domain.com">vidmonet@domain.com</a>
-                        <a href="mailto:hello@video.com">hello@video.com</a>
+                        <a href="mailto:vidmonet@domain.com">email@email.com</a>
+                        <a href="mailto:hello@video.com">email@email.com</a>
                     </div>
                     <div class="contact-info-card col-lg-3 col-sm-6">
                         <div class="icon">
                             <i class="fa-solid fa-location-dot"></i>
                         </div>
                         <h4>Endereço</h4>
-                        <span>176, Street Name, New York,</span>
-                        <span>NY 10014176, USA</span>
+                        <span>123, Rua das Pedras, Rio de Janeiro,</span>
+                        <span>RJ 12340000, BR</span>
                     </div>
                     <div class="social-content col-lg-3 col-sm-6">
                         <h4>Redes Sociais</h4>
@@ -267,15 +267,15 @@ include(TEMPLATEPATH . '/recaptcha.php');
         <!--End Contact Area-->
 
         <!--Start Contact Form Area-->
-        <div class="contact-form-area pb-100">
+        <div class="contact-form-area pb-50">
             <div class="container">
                 <div class="section-title">
                     <span>Envie-nos uma mensagem:</span>
                 </div>
                 <div class="contacts-form">
-                    <form id="contactForm2">
-                         <?php echo do_shortcode("[form_contato]"); ?>
-                    </form>
+                    <?php echo do_shortcode("[form_contato]"); ?>
+                    <!-- <form id="contactForm2">
+                    </form> -->
                 </div>
             </div>
         </div>

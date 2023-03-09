@@ -5,7 +5,7 @@
             <div class="col-sm-4 ">
                 <div class="single-footer-widget logo-area">
                     <div class="logo">
-                        <a href="index.html"><img src="<?php echo get_template_directory_uri(  );?>/assets/images/white-logo.png" alt="Image"></a>
+                        <a href="#"><img src="<?php echo get_template_directory_uri(  );?>/assets/images/Objetiva-logo.webp" alt="Image"></a>
                     </div>
                 </div>
             </div>
@@ -62,7 +62,11 @@
 <script src="https://www.google.com/recaptcha/api.js"></script>
 <!-- End Script Recaptcha -->
 
-
+<!-- Start Modal -->
+<!-- <script>
+    var modalMensagem = new bootstrap.Modal(document.getElementById('modalMensagem'));
+    modalMensagem.show();
+</script> -->
 <!-- Start Footer Wordpress -->
 <?php wp_footer(); ?>
 <!-- End Footer Wordpress -->

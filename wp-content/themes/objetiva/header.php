@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="<?php bloginfo('description');?>">
     <title><?php bloginfo('name');?></title>
-    <link rel="icon" type="image/png" href="<?php echo get_template_directory_uri(  );?>/assets/images/favicon.png">
+    <link rel="icon" type="image/ico" href="<?php echo get_template_directory_uri(  );?>/favicon.ico">
     <!-- Start Google fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -24,8 +24,8 @@
         <div class="container">
             <div class="mobile-responsive-menu">
                 <div class="logo">
-                    <a href="index.html">
-                        <img src="<?php echo get_template_directory_uri(  );?>/assets/images/white-logo.png" alt="logo">
+                    <a href="#">
+                        <img src="<?php echo get_template_directory_uri(  );?>/assets/images/Objetiva-logo.webp" alt="logo">
                     </a>
                 </div>
             </div>
@@ -35,8 +35,8 @@
     <div class="desktop-nav">
         <div class="container-fluid">
             <nav class="navbar navbar-expand-md navbar-light">
-                <a class="navbar-brand" href="index.html">
-                    <img src="<?php echo get_template_directory_uri(  );?>/assets/images/white-logo.png" alt="logo">
+                <a class="navbar-brand" href="#">
+                    <img src="<?php echo get_template_directory_uri(  );?>/assets/images/Objetiva-logo.webp" alt="logo">
                 </a>
                 <div class="collapse navbar-collapse mean-menu" id="navbarSupportedContent">
                     <ul class="navbar-nav ms-auto">

@@ -6794,7 +6794,8 @@ Contact Area Style
 
 .contacts-form .text-danger {
   color: var(--cor-historia) !important;
-  padding-top: 7px;
+  padding-top: 12px;
+  text-align: left;
 }
 
 /*
