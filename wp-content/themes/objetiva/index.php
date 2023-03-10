@@ -265,8 +265,6 @@ get_header();
                 </div>
                 <div class="contacts-form">
                     <?php echo do_shortcode("[form_contato]"); ?>
-                    <!-- <form id="contactForm2">
-                    </form> -->
                 </div>
             </div>
         </div>
