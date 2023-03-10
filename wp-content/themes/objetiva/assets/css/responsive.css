@@ -54,12 +54,6 @@
   .form-control {
     height: 45px;
   }
-  .searchmodal .modal-body {
-    max-width: 260px;
-  }
-  .modal.right .modal-dialog {
-    width: 320px;
-  }
   .default-btn {
     font-size: 14px;
     padding: 10px 14px;
@@ -83,11 +77,6 @@
     padding-left: 0;
     padding-right: 0;
   }
-  /* .banner-content .banner-left-content h1 {
-    font-size: 40px;
-    line-height: 50px;
-    margin-bottom: 18px;
-  } */
   .banner-area .banner-texto h1{
     font-size: 40px;
     line-height: 50px;
@@ -116,38 +105,6 @@
   .video-play-btn .play-btn a::before {
     height: 80px;
     width: 80px;
-  }
-  .banner-slider.owl-theme .owl-nav {
-    bottom: 45px;
-  }
-  .slider-counter {
-    bottom: 77px;
-  }
-  .banner-content-style2 {
-    padding-top: 60px;
-    padding-bottom: 60px;
-  }
-  .banner-content-style2 h1 {
-    font-size: 50px;
-    line-height: 60px;
-    margin-bottom: 20px;
-  }
-  .banner-logo-content {
-    padding-bottom: 50px;
-  }
-  .banner-logo-content ul li {
-    margin-right: 20px;
-  }
-  .banner-area-style3 {
-    padding-top: 60px;
-    padding-bottom: 60px;
-  }
-  .banner-content3 h1 {
-    font-size: 40px;
-    line-height: 50px;
-  }
-  .banner-content3 p {
-    margin-bottom: 25px;
   }
   .experience-area .container .shape {
     display: none;
@@ -2714,24 +2671,6 @@
     background-color: #ffffff;
   }
   .navbar-area.style2 .others-option-for-responsive .others-options .option-item .sidebar-btn .sidebar-menu::after {
-    background-color: #ffffff;
-  }
-  .navbar-area.style3 .others-option-for-responsive .others-options {
-    padding-left: 60px;
-  }
-  .navbar-area.style3 .others-option-for-responsive .others-options .option-item .search-btn a {
-    color: #ffffff;
-  }
-  .navbar-area.style3 .others-option-for-responsive .others-options .option-item .search-btn a:hover {
-    color: #ffffff;
-  }
-  .navbar-area.style3 .others-option-for-responsive .others-options .option-item .sidebar-btn .sidebar-menu {
-    border-bottom: 2px solid #ffffff;
-  }
-  .navbar-area.style3 .others-option-for-responsive .others-options .option-item .sidebar-btn .sidebar-menu::before {
-    background-color: #ffffff;
-  }
-  .navbar-area.style3 .others-option-for-responsive .others-options .option-item .sidebar-btn .sidebar-menu::after {
     background-color: #ffffff;
   }
   .experience-image .experience h2,

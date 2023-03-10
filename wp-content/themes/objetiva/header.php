@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="<?php bloginfo('description');?>">
     <title><?php bloginfo('name');?></title>
-    <link rel="icon" type="image/ico" href="<?php echo get_template_directory_uri(  );?>/favicon.ico">
+    <link rel="icon" type="image/x-icon" href="<?php echo get_template_directory_uri(  );?>/favicon.ico">
     <!-- Start Google fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -74,48 +74,3 @@
     </div>
 </div>
 <!-- End Navbar Area -->
-
-<!-- Sidebar Modal -->
-<div class="sidebarModal modal right fade" id="sidebarModal" tabindex="-1" role="dialog">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <button type="button" class="close" data-bs-dismiss="modal"> <i class="fa-solid fa-xmark"></i></button>
-
-            <div class="modal-body">
-                <a href="index.html">
-                    <img src="<?php echo get_template_directory_uri(  );?>/assets/images/white-logo.png"  alt="logo">
-                </a>
-                <div class="sidebar-content">
-                    <h3>About Us</h3>
-                    <p>Lorem ipsum dolor sit amet consectetur adipiscing elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-                </div>
-                <div class="sidebar-contact-info">
-                    <h3>Contact Information</h3>
-
-                    <ul class="info-list">
-                        <li><i class="fa-solid fa-phone"></i> <a href="tel:9901234567">+990-123-4567</a></li>
-                        
-                        <li><i class="fa-regular fa-envelope"></i><a href="mailto:hello@mala.com">hello@vidmo.com</a></li>
-
-                        <li><i class="fa-regular fa-location-dot"></i> 413 North Las Vegas, NV 89032</li>
-                    </ul>
-                </div>
-                <ul class="sidebar-social-list">
-                    <li>
-                        <a href="https://www.facebook.com" target="_blank"><i class="fa-brands fa-facebook-f"></i></a>
-                    </li>
-                    <li>
-                        <a href="https://www.twitter.com" target="_blank"><i class="fa-brands fa-twitter"></i></a>
-                    </li>
-                    <li>
-                        <a href="https://linkedin.com/?lang=en" target="_blank"><i class="fa-brands fa-linkedin-in"></i></a>
-                    </li>
-                    <li>
-                        <a href="https://instagram.com/?lang=en" target="_blank"><i class="fa-brands fa-instagram"></i></a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </div>
-</div>
-<!-- End Sidebar Modal -->

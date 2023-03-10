@@ -28,13 +28,9 @@ function objetiva_css() {
 
     wp_register_style( 'fontawesome', get_template_directory_uri() . '/assets/css/fontawesome.min.css', array(), '6.1.1', false );
 
-    wp_register_style( 'odometer', get_template_directory_uri() . '/assets/css/odometer.min.css', array(), false, false );
-
     wp_register_style( 'aos', get_template_directory_uri() . '/assets/css/aos.css', array(), false, false );
 
     wp_register_style( 'style', get_template_directory_uri() . '/assets/css/style.css', array(), false, false );
-
-    wp_register_style( 'dark', get_template_directory_uri() . '/assets/css/dark.css', array(), false, false );
 
     wp_register_style( 'responsive', get_template_directory_uri() . '/assets/css/responsive.css', array(), false, false );
 
@@ -45,10 +41,8 @@ function objetiva_css() {
 	wp_enqueue_style( 'owl-defauld' );
 	wp_enqueue_style( 'magnific-popup' );
 	wp_enqueue_style( 'fontawesome' );
-	wp_enqueue_style( 'odometer' );
 	wp_enqueue_style( 'aos' );
 	wp_enqueue_style( 'style' );
-	wp_enqueue_style( 'dark' );
 	wp_enqueue_style( 'responsive' );
 }
 add_action( 'wp_enqueue_scripts', 'objetiva_css' );
@@ -70,13 +64,7 @@ function objetiva_scripts() {
 
     wp_register_script( 'parallax', get_template_directory_uri() . '/assets/js/parallax.min.js', array(), false, true );
 
-    wp_register_script( 'odometer', get_template_directory_uri() . '/assets/js/odometer.min.js', array(), '0.4.8', true );
-
     wp_register_script( 'appear', get_template_directory_uri() . '/assets/js/appear.min.js', array(), false, true );
-
-    wp_register_script( 'form-validator', get_template_directory_uri() . '/assets/js/form-validator.min.js', array(), '0.8.1', true );
-
-    wp_register_script( 'contact-form-script', get_template_directory_uri() . '/assets/js/contact-form-script.js', array(), false, true );
 
     wp_register_script( 'ajaxchimp', get_template_directory_uri() . '/assets/js/ajaxchimp.min.js', array(), false, true );
 
@@ -90,10 +78,7 @@ function objetiva_scripts() {
 	wp_enqueue_script( 'jquery-magnific-popup' );
 	wp_enqueue_script( 'aos' );
 	wp_enqueue_script( 'parallax' );
-	wp_enqueue_script( 'odometer' );
 	wp_enqueue_script( 'appear' );
-	wp_enqueue_script( 'form-validator' );
-	wp_enqueue_script( 'contact-form-script' );
 	wp_enqueue_script( 'ajaxchimp' );
 	wp_enqueue_script( 'custom' );
 }

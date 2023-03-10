@@ -15,16 +15,7 @@
                     <div class="social-content">
                         <ul>
                             <li>
-                                <a href="https://www.facebook.com" target="_blank"><i class="fa-brands fa-facebook-f"></i></a>
-                            </li>
-                            <li>
-                                <a href="https://www.twitter.com" target="_blank"><i class="fa-brands fa-twitter"></i></a>
-                            </li>
-                            <li>
-                                <a href="https://linkedin.com/?lang=en" target="_blank"><i class="fa-brands fa-linkedin-in"></i></a>
-                            </li>
-                            <li>
-                                <a href="https://instagram.com/?lang=en" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+                                <a href="https://www.instagram.com/agenciaobjetiva/" target="_blank"><i class="fa-brands fa-instagram"></i></a>
                             </li>
                         </ul>
                     </div>
@@ -33,8 +24,8 @@
             <div class="col-sm-4  text-xl-end text-sm-center">
                 <div class="single-footer-widget logo-area">
                     <span class="dto me-1">site por</span>
-                    <a href="">
-                        <img src="<?php echo get_template_directory_uri(  );?>/assets/images/logo-dto.webp" alt="">
+                    <a href="https://dtopublicidade.com.br/" target="_blank">
+                        <img src="<?php echo get_template_directory_uri(  );?>/assets/images/logo-dto.webp" alt="dto publicidade" class="dto-logo">
                     </a>
                 </div>
             </div>
@@ -62,11 +53,6 @@
 <script src="https://www.google.com/recaptcha/api.js"></script>
 <!-- End Script Recaptcha -->
 
-<!-- Start Modal -->
-<!-- <script>
-    var modalMensagem = new bootstrap.Modal(document.getElementById('modalMensagem'));
-    modalMensagem.show();
-</script> -->
 <!-- Start Footer Wordpress -->
 <?php wp_footer(); ?>
 <!-- End Footer Wordpress -->

@@ -13,12 +13,12 @@ get_header();
                         <p>Hub de projetos culturais na indústria criativa.</p>
                     </div>
                     <div class="banner-video">
-                        <video autoplay muted loop preload="metadata" class="img-fluid d-md-block d-none">
+                        <video autoplay muted loop preload="metadata" class="img-fluid d-md-block d-none" poster="<?php echo get_template_directory_uri();?>/assets/images/video-logo/Poster-video.webp">
                             <source src="<?php echo get_template_directory_uri();?>/assets/images/video-logo/Banner-video.mp4" type="video/mp4">
                         </video>
 
-                        <video autoplay muted loop preload="metadata" class="video-mobile img-fluid d-md-none d-block">
-                            <source src="<?php echo get_template_directory_uri();?>/assets/images/video-logo/Banner-video-mobile3.mp4" type="video/mp4">
+                        <video autoplay muted loop preload="metadata" class="video-mobile img-fluid d-md-none d-block" poster="<?php echo get_template_directory_uri();?>/assets/images/video-logo/Poster-video.webp">
+                            <source src="<?php echo get_template_directory_uri();?>/assets/images/video-logo/Banner-video-mobile.mp4" type="video/mp4">
                         </video>
                     </div>
                 </div>
@@ -171,7 +171,7 @@ get_header();
             <div class="container-fluid">
                 <div class="container">
                     <div class="section-title style2 white-title">
-                        <span>Diferenciais</span>
+                        <span>Sonhos em ação através das câmeras</span>
                         <h2>Projetos realizados</h2>
                     </div>
                 </div>
@@ -248,16 +248,7 @@ get_header();
                         <h4>Redes Sociais</h4>
                         <ul>
                             <li>
-                                <a href="https://www.facebook.com" target="_blank"><i class="fa-brands fa-facebook-f"></i></a>
-                            </li>
-                            <li>
-                                <a href="https://www.twitter.com" target="_blank"><i class="fa-brands fa-twitter"></i></a>
-                            </li>
-                            <li>
-                                <a href="https://linkedin.com/?lang=en" target="_blank"><i class="fa-brands fa-linkedin-in"></i></a>
-                            </li>
-                            <li>
-                                <a href="https://instagram.com/?lang=en" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+                                <a href="https://www.instagram.com/agenciaobjetiva/" target="_blank"><i class="fa-brands fa-instagram"></i></a>
                             </li>
                         </ul>
                     </div>
